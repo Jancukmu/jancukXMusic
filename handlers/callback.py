@@ -42,16 +42,16 @@ async def cbstart(_, query: CallbackQuery):
             [ 
                 [
                     InlineKeyboardButton(
-                        "➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ​ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                        "➕ Add me to your group ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                        "ʀᴇᴘᴏ​​", url="https://github.com/KennedyProject/KennedyXMusic"
+                        "Source", url="https://github.com/KennedyProject/KennedyXMusic"
                     ),
                     InlineKeyboardButton(
-                        "ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{GROUP_SUPPORT}")
+                        "Support", url=f"https://t.me/{GROUP_SUPPORT}")
                 ],[
                     InlineKeyboardButton(
-                        "ʜᴏᴡ ᴛᴏ ᴜsᴇ ᴍᴇ​ ❓​", callback_data="cbguide"
+                        "How to use me ❓​", callback_data="cbguide"
                     )
                 ]
             ]
@@ -89,15 +89,40 @@ __{bn} licensed under the GNU General Public License v.3.0__
             [
                 [
                     InlineKeyboardButton(
-                        "sᴏᴜʀᴄᴇ​​", url="https://github.com/KennedyProject/KennedyXMusic"
+                        "T & C", callback_data="cbtnc"
                     ),
                     InlineKeyboardButton(
-                        "ʙᴀᴄᴋ​", callback_data="cbadvanced"
+                        "Back", callback_data="cbadvanced"
                     )
                 ]
             ]
         ),
      disable_web_page_preview=True
+    )
+
+
+@Client.on_callback_query(filters.regex("cbtnc"))
+async def cbtnc(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""<b>{alv} **command for T&C**
+
+**About Music**
+
+~ this music was made just because i was out of it, and this music or this repo was not 
+~ made by me but the one who made this music bot is @xxskfi
+~ Thanks to @xxskfi.
+~ And thank you to all Music Bot users around the world
+
+💡 Bot by @{OWNER_NAME}""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "BACK", callback_data="cbadvanced"
+                    )
+                ]
+            ]
+        )
     )
 
 
@@ -113,20 +138,20 @@ async def cbhelp(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "📚 Basic Cmd", callback_data="cbbasic"
+                        "Basic Cmd", callback_data="cbbasic"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "📘 Admin Cmd", callback_data="cbadmin"
+                        "Admin Cmd", callback_data="cbadmin"
                     ),
                     InlineKeyboardButton(
-                        "📗 Sudo Cmd", callback_data="cbsudo"
+                        "Sudo Cmd", callback_data="cbsudo"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "📔 Fun Cmd", callback_data="cbfun"
+                        "Fun Cmd", callback_data="cbfun"
                     )
                 ],
                 [
@@ -190,15 +215,15 @@ async def cbadvanced(_, query: CallbackQuery):
 
 {alv} **Service Uptime : `{uptime}`**
 
-**Thanks For Using Me ♥️**""",
+**Thanks For Using Me**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "ᴀʙᴏᴜᴛ", callback_data="cbabout"
+                        "About", callback_data="cbabout"
                     ),
                     InlineKeyboardButton(
-                        "ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
                     )
                 ]
             ]
@@ -302,12 +327,12 @@ async def cbguide(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "📚 Command List", callback_data="cbhelp"
+                        "Command List", callback_data="cbhelp"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "🗑 Close", callback_data="close"
+                        "Close", callback_data="close"
                     )
                 ]
             ]
