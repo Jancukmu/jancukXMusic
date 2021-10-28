@@ -118,7 +118,7 @@ async def cbtnc(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "BACK", callback_data="cbadvanced"
+                        "BACK", callback_data="cbguide"
                     )
                 ]
             ]
