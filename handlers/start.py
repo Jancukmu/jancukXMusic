@@ -42,7 +42,7 @@ async def start_(client: Client, message: Message):
                         "➕ Add me to your group ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                        "Source", url=f"https://github.com/KennedyXMusic
+                        "Source", url=f"https://github.com/KennedyProject/KennedyXMusic"
                     ),
                     InlineKeyboardButton(
                         "Support", url=f"https://t.me/{GROUP_SUPPORT}")
