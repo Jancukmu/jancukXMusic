@@ -152,7 +152,7 @@ def updated_stats(chat, queue, vol=100):
             stats += "\n\n"
             stats += "🎚️ Volume: {}%\n".format(vol)
             stats += "🎼 Song in queue: `{}`\n".format(len(que))
-            stats += "💡 Now playing: **{}**\n".format(queue[0][0])
+            stats += "🌈 Now playing: **{}**\n".format(queue[0][0])
             stats += "🎧 Requested by: {}".format(queue[0][1].mention)
     else:
         stats = None
@@ -603,8 +603,8 @@ async def play(_, message: Message):
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣"]
             while j < 5:
                 toxxt += f"{emojilist[j]} [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})\n"
-                toxxt += f" ├ 💡 Duration - {results[j]['duration']}\n"
-                toxxt += f" └ ⚡ __Powered by [{bn}](https://t.me/{BOT_USERNAME})__\n\n"
+                toxxt += f" ├ 🌈 Duration - {results[j]['duration']}\n"
+                toxxt += f" └ 💡 __Powered by [{bn}](https://t.me/{BOT_USERNAME})__\n\n"
                 j += 1            
             keyboard = InlineKeyboardMarkup(
                 [
@@ -687,8 +687,8 @@ async def play(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"🏷 **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
-                    + f"🎧 **Request by:** {r_by.mention} \n",
+            caption = f" **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
+                    + f" **Request by:** {r_by.mention} \n",
             reply_markup=keyboard
         )
         os.remove("final.png")
@@ -789,8 +789,8 @@ async def lol_cb(b, cb):
         await b.send_photo(
         chat_id,
         photo="final.png",
-        caption = f"🏷 **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
-                + f"🎧 **Request by:** {r_by.mention} \n",
+        caption = f" **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
+                + f" **Request by:** {r_by.mention} \n",
         reply_markup=keyboard,
         )
         if path.exists("final.png"):
@@ -931,8 +931,8 @@ async def ytplay(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"🏷 **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
-                    + f"🎧 **Request by:** {r_by.mention} \n",
+            caption = f" **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
+                    + f" **Request by:** {r_by.mention} \n",
                     reply_markup=keyboard)
         os.remove("final.png")
         return await lel.delete()
